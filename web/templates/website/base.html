@@ -10,8 +10,70 @@
     <link rel="stylesheet" href="{% static 'src/css/styles.css' %}">
     {% endcompress %}
 </head>
-<body>
+<body id="wrapper">
+    <header class="header">
+        <div class="header__headings">
+            <div class="header__aboutus">
+                <a href="">Nosotros</a>
+                <a href="">Preguntas frecuentes</a>
+                <a href="">Contáctanos</a>
+            </div>
+            <div class="header__useractions">
+                <button>Búsqueda masiva</button>
+                <button>Iniciar sesión</button>
+            </div>
+        </div>
+        <div class="header__content">
+            <div class="header__logo"></div>
+            <nav>
+                <ul>
+                    <li>
+                        <strong>Europeo</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Americano</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Brasilero</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Asiatico</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Maq. Pesada</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Motores</strong>
+                        <ul>
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__cart"></div>
+        </div>
+    </header>
+    <main id="main">
     {% block content %}
     {% endblock %}
+    </main>
+    <footer>
+        footer
+    </footer>
 </body>
 </html>
