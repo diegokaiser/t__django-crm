@@ -36,11 +36,80 @@
     .header__logo {}
     nav {
       ul {
+        position: relative;
         li {
+          cursor: pointer;
+          &:hover {
+            strong {
+              &::after {
+                width: 100%;
+              }
+            }
+            ul {
+              opacity: 1;
+              top: calc(24px + 11px);
+              visibility: visible;
+            }
+          }
           strong {
             color: white;
+            display: block;
+            margin-bottom: 11px;
+            position: relative;
+            z-index: 2;
+            &::after {
+              background-color: white;
+              bottom: 0;
+              content: '';
+              display: block;
+              height: 1px;
+              left: 0;
+              position: absolute;
+              width: 0;
+              transition: .35s ease;
+            }
           }
-          ul {}
+          ul {
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0 0 8px 0 rgba(0,0,0,.1);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            padding: 21px 35px 21px 21px;
+            position: absolute;
+            row-gap: 11px;
+            top: 0;
+            transition: .35s ease;
+            visibility: hidden;
+            z-index: 1;
+            li {
+              a {
+                color: #333333;
+                font-family: "Inter", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                position: relative;
+                white-space: nowrap;
+                &:hover {
+                  &::after {
+                    width: 100%;
+                  }
+                }
+                &::after {
+                  background-color: #333333;
+                  bottom: -2px;
+                  content: '';
+                  display: block;
+                  height: 1px;
+                  left: 0;
+                  position: absolute;
+                  width: 0;
+                  transition: .35s ease;
+                }
+              }
+            }
+          }
         }
       }
     }
