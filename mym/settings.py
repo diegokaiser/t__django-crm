@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mym.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'mym.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 't__mymproject',
-        'USER': 'root',
-        'PASSWORD': 'toor',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        #'USER': 'root',
+        #'PASSWORD': 'toor',
+        #'HOST': '127.0.0.1',
+        #'PORT': '3306',
     }
 }
 

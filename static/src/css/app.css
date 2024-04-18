@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+  .header__headings {
+    .header__aboutus {
+      a {
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        &:hover {
+        }
+      }
+    }
+
+    .header__useractions {
+      button {
+        background-color: #2EA862;
+        border: 2px solid #2EA862;
+        border-radius: 4px;
+        color: white;
+        height: 31px;
+        &:first-child {
+          background-color: #F29F03;
+          border: 2px solid #F29F03;
+          color: #333333;
+        }
+      }
+    }
+  }
+
+  .header__content {
+    .header__logo {}
+    nav {
+      ul {
+        li {
+          strong {
+            color: white;
+          }
+          ul {}
+        }
+      }
+    }
+  }
+}
+
+main {
+}
+
+.home {
+  background: rgb(14,76,140);
+  background: linear-gradient(180deg, rgba(14,76,140,1) 0%, rgba(50,165,191,1) 100%);
+  .home__banner {
+    min-height: 719px;
+  }
+}
+
+.footer {
+  background-color: #121212;
+  .footer__content {
+    .footer__items {
+      .footer__item {
+        strong {
+          color: white;
+          display: inline-block;
+          font-size: 15px;
+          margin-bottom: 11px;
+        }
+
+        p {
+          color: #A2A2A2;
+          font-size: 14px;
+        }
+
+        ul {
+          li {
+            a {
+              color: #B3B3B3;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .likeButton {
+          align-items: center;
+          background-color: #F29F03;
+          border: 2px solid #F29F03;
+          border-radius: 4px;
+          color: white;
+          display: inline-flex;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          height: 44px;
+          justify-content: center;
+          margin-bottom: 13px;
+          min-width: 210px;
+          text-transform: uppercase;
+          transition: .35s ease;
+
+          &:hover {
+            background-color: rgba(242, 159, 3, .5);
+          }
+        }
+
+        .likeButton-outline {
+          align-items: center;
+          background-color: transparent;
+          border: 2px solid white;
+          border-radius: 4px;
+          color: white;
+          display: inline-flex;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          height: 44px;
+          justify-content: center;
+          min-width: 210px;
+          text-transform: uppercase;
+          transition: .35s ease;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, .5);
+          }
+        }
+      }
+    }
+  }
+}
