@@ -2,7 +2,7 @@ const app = []
 
 app.home = {
   init: () => {
-    console.log(':)')
+    console.log('Developed with ♥')
   },
   search: () => {
     const onClickSearchByProduct = document.querySelector('.js-searchByProduct')
