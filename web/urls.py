@@ -2,12 +2,12 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # workarea
-    path('admin/', views.workarea, name='workarea'),
     # website
     path('', views.home, name='home'),
-    # path('login', views.login, name='login'),
-    # path('registrar', views.login, name='register'),
+    path('login', views.log_in, name='login'),
+    path('logout', views.log_out, name='logout'),
+    path('registrar', views.registrar, name='register'),
+
     # path('sistemas', views.sistemas, name='sistemas'),
 
     # path('carrito-de-compra', views.cart, name='carrito-de-compra'),
@@ -30,4 +30,7 @@ urlpatterns = [
     # path('nosotros/terminos-y-condiciones', views.nosotrosTYC, name='nosotros/terminos-y-condiciones'),
 
     # path('producto', views.producto, name='producto'),
+
+    # workarea
+    # path('admin/', views.workarea, name='workarea'),
 ]

@@ -4,7 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* RESET */
+input,
+select,
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
 .header {
+  background: rgb(14,76,140);
+  background: linear-gradient(180deg, rgba(14,76,140,1) 0%, #165F97 100%);
+  border-bottom: 0px solid rgba(0, 78, 145, 0);
+  transition: .15s ease;
+  top: 0;
   .header__headings {
     .header__aboutus {
       a {
@@ -28,10 +42,13 @@
           border: 2px solid #F29F03;
           color: #333333;
         }
+        &.logout {
+          background-color: #C53715;
+          border: 2px solid #C53715;
+        }
       }
     }
   }
-
   .header__content {
     .header__logo {}
     nav {
@@ -114,6 +131,43 @@
       }
     }
   }
+  &.scrolled {
+    background: white;
+    border-bottom: 1px solid rgba(0, 78, 145, .5);
+    position: fixed;
+    top: -48px;
+    z-index: 9;
+    .header__content {
+      nav {
+        ul {
+          li {
+            strong {
+              color: #004E91;
+              &::after {
+                background-color: #004E91;
+              }
+            }
+            ul {
+              li {
+                a {
+                  &::after {
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .header__cart {
+        .cart__info {
+          strong {
+            color: #004E91;
+          }
+        }
+      }
+    }
+  }
 }
 
 main {
@@ -162,9 +216,6 @@ main {
               width: 213px;
               select {
                 width: 80%;
-                &:focus {
-                  outline: 0;
-                }
               }
             }
           }
@@ -177,9 +228,6 @@ main {
             input {
               &[type='text'] {
                 width: 80%;
-                &:focus {
-                  outline: 0;
-                }
               }
               &::placeholder {
                 color: #B0B0B0;
@@ -204,9 +252,6 @@ main {
                   background-color: white;
                   color: #004E91;
                 }
-              }
-              &:focus {
-                outline: 0;
               }
             }
           }
@@ -336,6 +381,69 @@ main {
   }
 }
 
+/* LOGIN */
+.login {
+  min-height: 719px;
+  .login__content {
+    .login,
+    .register {
+      form {
+        .input__field {
+          height: 47px;
+          input {
+            width: 100%;
+          }
+        }
+        p {
+          a {
+            color: white;
+            position: relative;
+            transition: .35s ease;
+            &::after {
+              background-color: white;
+              bottom: -2px;
+              content: "";
+              display: block;
+              height: 1px;
+              left: 0;
+              position: absolute;
+              width: 0;
+              transition: .35s ease;
+            }
+            &:hover {
+              color: #F29F03;
+              &::after {
+                background-color: #F29F03;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* REGISTER */
+.registro {
+  min-height: 719px;
+  .registro__content {
+    form {
+      .registro__empresa,
+      .registro__persona {
+        .input__field {
+          height: 47px;
+          input,
+          select {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* GLOBALS */
 .likeButton {
   align-items: center;
   background-color: #F29F03;
@@ -376,6 +484,27 @@ main {
 
   &:hover {
     background-color: rgba(255, 255, 255, .5);
+  }
+}
+
+.likeButton-negative {
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  display: inline-flex;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  height: 44px;
+  justify-content: center;
+  min-width: 210px;
+  text-transform: uppercase;
+  transition: .35s ease;
+
+  &:hover {
+    background-color: rgba(51, 51, 51, .5);
   }
 }
 
