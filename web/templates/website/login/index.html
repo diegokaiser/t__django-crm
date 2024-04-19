@@ -5,7 +5,7 @@
 <div class="login">
     {% if messages %}
         {% for message in messages %}
-            <div class="toast">
+            <div class="toast {{message.tags}}">
                 <div class="toast__content">
                     {{ message }}
                 </div>
@@ -22,7 +22,7 @@
                         <input type="text" name="email" id="email" placeholder="Correo" required>
                     </div>
                     <div class="input__field bg-white border-2 flex items-center justify-center mb-6 rounded px-6" style="border-color: #E0E0E0">
-                        <input type="text" name="password" id="password" placeholder="Contraseña" required>
+                        <input type="password" name="password" id="password" placeholder="Contraseña" required>
                     </div>
                     <p class="mb-6">
                         <a href="">Olvidé mi contraseña</a>

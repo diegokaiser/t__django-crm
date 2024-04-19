@@ -131,3 +131,4 @@ Control.system-ca-bundle
 GitHub.sublime-settings
 
 node_modules
+static/CACHE

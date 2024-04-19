@@ -22,7 +22,7 @@
                 <div class="header__useractions flex gap-x-2">
                     {% if user.is_authenticated %}
                     <div class="flex items-center mr-5 text-white" style="font-size: 13px;">
-                        Bienvenido, user!
+                        Bienvenido, {{user}}!
                     </div>
                     {% endif %}
                     <button class="inline-flex items-center justify-center font-bold px-4 text-sm" onclick="location.href = '/search'">
@@ -30,7 +30,7 @@
                         Búsqueda masiva
                     </button>
                     {% if user.is_authenticated %}
-                    <button class="logout inline-flex items-center justify-center font-bold px-4 text-sm" onclick="location.href = '/login'">
+                    <button class="logout inline-flex items-center justify-center font-bold px-4 text-sm" onclick="location.href = '/logout'">
                         <img src="{% static 'src/images/icons/btn-user.svg' %}" class="mr-2">
                         Cerrar sesión
                     </button>

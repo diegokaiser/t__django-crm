@@ -19,7 +19,8 @@ def log_in(request):
             messages.success(request, 'You are now logged!')
             return redirect('home')
         else:
-            messages.success(request, 'There was an error logging in. Please try again.')
+            messages.error(request, 'There was an error logging in. Please try again.')
+            return redirect('login')
     else:
         return render(request, 'website/login/index.html', {})
 
@@ -30,7 +31,10 @@ def log_out(request):
 
 
 def registrar(request):
-    return render(request, 'website/registrar/index.html', {})
+    if request.method == 'POST':
+        print(request.POST)
+    else:
+        return render(request, 'website/registrar/index.html', {})
 
 
 def sistemas(request):
@@ -41,15 +45,15 @@ def cart(request):
     return render(request, 'website/carrito-de-compra/index.html', {})
 
 
-def cartConfirmacion(request):
+def cart_confirmacion(request):
     return render(request, 'website/carrito-de-compra/confirmacion/index.html', {})
 
 
-def cartFacturacion(request):
+def cart_facturacion(request):
     return render(request, 'website/carrito-de-compra/facturacion/index.html', {})
 
 
-def cartFacturacionMetodoPago(request):
+def cart_facturacion_metodo_pago(request):
     return render(request, 'website/carrito-de-compra/facturacion/metodo-pago/index.html', {})
 
 
@@ -57,27 +61,27 @@ def cuenta(request):
     return render(request, 'website/mi-cuenta/index.html', {})
 
 
-def cuentaCarrito(request):
+def cuenta_carrito(request):
     return render(request, 'website/mi-cuenta/carrito/index.html', {})
 
 
-def cuentaColaboradores(request):
+def cuenta_colaboradores(request):
     return render(request, 'website/mi-cuenta/colaboradores/index.html', {})
 
 
-def cuentaDirecciones(request):
+def cuenta_direcciones(request):
     return render(request, 'website/mi-cuenta/direcciones/index.html', {})
 
 
-def cuentaEstadoDeCuenta(request):
+def cuenta_estado_de_cuenta(request):
     return render(request, 'website/mi-cuenta/estado-de-cuenta/index.html', {})
 
 
-def cuentaListaDeDeseos(request):
+def cuenta_lista_de_deseos(request):
     return render(request, 'website/mi-cuenta/lista-de-deseos/index.html', {})
 
 
-def cuentaPedidos(request):
+def cuenta_pedidos(request):
     return render(request, 'website/mi-cuenta/pedidos/index.html', {})
 
 
@@ -85,19 +89,19 @@ def nosotros(request):
     return render(request, 'website/mi-cuenta/index.html', {})
 
 
-def nosotrosContactanos(request):
+def nosotros_contactanos(request):
     return render(request, 'website/contactanos/index.html', {})
 
 
-def nosotrosFAQ(request):
+def nosotros_faq(request):
     return render(request, 'website/preguntas-frecuentes/index.html', {})
 
 
-def nosotrosQuienesSomos(request):
+def nosotros_quienes_somos(request):
     return render(request, 'website/quienes-somos/index.html', {})
 
 
-def nosotrosTYC(request):
+def nosotros_tyc(request):
     return render(request, 'website/terminos-y-condiciones/index.html', {})
 
 
@@ -106,7 +110,7 @@ def producto(request):
 
 
 # Workarea views here.
-#def workarea(request):
+# def workarea(request):
 #    return render(request, 'workarea/index.html', {
 
 #    })
