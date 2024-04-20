@@ -33,19 +33,23 @@ button {
 
     .header__useractions {
       button {
-        background-color: #2EA862;
-        border: 2px solid #2EA862;
+        background-color: #F29F03;
+        border: 2px solid #F29F03;
         border-radius: 4px;
-        color: white;
+        color: #333333;
         height: 31px;
         &:first-child {
-          background-color: #F29F03;
-          border: 2px solid #F29F03;
-          color: #333333;
+        }
+        &.login {
+          background-color: #2EA862;
+          border: 2px solid #2EA862;
+          color: white;
+          min-height: initial;
         }
         &.logout {
           background-color: #C53715;
           border: 2px solid #C53715;
+          color: white;
         }
       }
     }
@@ -67,6 +71,7 @@ button {
               opacity: 1;
               top: calc(24px + 11px);
               visibility: visible;
+              z-index: 3;
             }
           }
           strong {
@@ -305,6 +310,10 @@ main {
         background-color: #F5F5F5;
         border-radius: 50%;
         min-height: 124px;
+        img {
+          height: auto;
+          width: 75px;
+        }
       }
     }
   }
@@ -372,6 +381,10 @@ main {
         background-color: #E9F3FB;
         border-radius: 4px;
         min-height: 109px;
+        img {
+          height: 52px;
+          width: auto;
+        }
         .item__reason {
           color: #333;
           font-size: 16px;

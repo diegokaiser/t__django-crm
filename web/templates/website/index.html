@@ -18,19 +18,33 @@
                     <form action="">
                         <div class="select__group flex">
                             <div class="select__field bg-white border-2 rounded" style="border-color: #E0E0E0">
-                                <select name="" id="">
+                                <select name="brands" id="brands">
                                     <option value="0">Marca</option>
+                                    {% if brands %}
+                                        {% for brand in brands %}
+                                            <option value="brand-{{ forloop.counter }}">{{ brand.name }}</option>
+                                        {% endfor %}
+                                    {% endif %}
                                 </select>
                             </div>
                             <div class="select__field bg-white border-2 rounded ml-2" style="border-color: #E0E0E0">
-                                <select name="" id="">
+                                <select
+                                    name="systems"
+                                    id="systems"
+                                    hx-get="{% url 'subsystems' %}"
+                                    hx-trigger="change"
+                                    hx-target="#subsystemsSelect"
+                                >
                                     <option value="0">Sistema</option>
+                                    {% if systems %}
+                                        {% for system in systems %}
+                                            <option value="{{ system.pk }}">{{ system.name }}</option>
+                                        {% endfor  %}
+                                    {% endif  %}
                                 </select>
                             </div>
-                            <div class="select__field bg-white border-2 rounded ml-2" style="border-color: #E0E0E0">
-                                <select name="" id="">
-                                    <option value="0">Subsistema</option>
-                                </select>
+                            <div class="select__field bg-white border-2 rounded ml-2" id="subsystemsSelect" style="border-color: #E0E0E0">
+                                {% include 'website/partials/select_subsystems.html' %}
                             </div>
                         </div>
                         <div class="flex items-center ml-4 mr-4">
@@ -102,80 +116,13 @@
         </div>
         <h3 class="font-bold mb-6 text-xl">Fabricantes con los que trabajamos</h3>
         <div class="brands__items grid grid-cols-12 grid-rows-2 gap-x-1 gap-y-2">
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-
-
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mannfilter.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_mahle.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_laso.png' %}" alt="">
-            </div>
-            <div class="brand__item flex items-center justify-center">
-                <img src="{% static 'src/images/icons/brands_bosch.png' %}" alt="">
-            </div>
+            {% if brands %}
+                {%  for brand in brands %}
+                    <div class="brand__item flex items-center justify-center">
+                        <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
@@ -306,30 +253,14 @@
     <div class="reasons__content container my-0 mx-auto pt-12 pb-16">
         <h2 class="font-bold mb-6 text-center text-xl">6 razones para elegirnos</h2>
         <div class="reasons__items grid grid-cols-3 grid-rows-2 gap-6">
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
-            <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                <img src="{% static 'src/images/reason_a.svg' %}" alt="">
-                <div class="item__reason">Despacho inmediato y gratuito</div>
-            </div>
+            {% if reasons %}
+                {% for reason in reasons %}
+                    <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
+                        <img src="{{ reason.icon }}" alt="{{ reason.text }}">
+                        <div class="item__reason">{{ reason.text }}</div>
+                    </div>
+                {% endfor  %}
+            {% endif  %}
         </div>
     </div>
 </div>

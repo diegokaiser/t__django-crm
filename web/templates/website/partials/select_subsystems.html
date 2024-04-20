@@ -1,0 +1,6 @@
+<select name="subsystems" id="subsystems">
+    <option value="0">Subsistema</option>
+    {% for subsystem in subsystems %}
+        <option value="{{ subsystem.pk }}">{{ subsystem.name }}</option>
+    {% endfor %}
+</select>
