@@ -1,30 +1,42 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Brand, System, Reason, Subsystem
+from .models import Brand, Reason, BannerDestacado, BannerA, System, Subsystem, MenuCategory, MenuSubcategory, Product
 
 
 # Website views here.
 def home(request):
-    brands = Brand.objects.all()
     systems = System.objects.all()
+    banners_d = BannerDestacado.objects.all()
+    banners_a = BannerA.objects.all()
+    brands = Brand.objects.all()
+    products = Product.objects.all()[:6]
     reasons = Reason.objects.all()
     return render(
         request,
         'website/index.html',
         {
-            'brands': brands,
             'systems': systems,
+            'banners_d': banners_d,
+            'banners_a': banners_a,
+            'brands': brands,
+            'products': products,
             'reasons': reasons
         }
     )
+
+
+def load_menu(request):
+    categories = MenuCategory.objects.all()
+    subcategories = MenuSubcategory.objects.all()
 
 
 def subsystems(request):
     system = request.GET.get('systems')
     subsystems = Subsystem.objects.filter(system=system)
     return render(
-        request, 'website/partials/select_subsystems.html',
+        request,
+        'website/partials/select_subsystems.html',
         {
             'subsystems': subsystems
         }
@@ -136,10 +148,6 @@ def nosotros_faq(request):
     return render(request, 'website/nosotros/preguntas-frecuentes/index.html', {})
 
 
-def nosotros_quienes_somos(request):
-    return render(request, 'website/nosotros/quienes-somos/index.html', {})
-
-
 def nosotros_tyc(request):
     return render(request, 'website/nosotros/terminos-y-condiciones/index.html', {})
 
@@ -148,8 +156,22 @@ def nosotros_libro(request):
     return render(request, 'website/nosotros/libro-de-reclamaciones/index.html', {})
 
 
-def producto(request):
-    return render(request, 'website/producto/index.html', {})
+def producto(request, id):
+    product = Product.objects.get(id=id)
+    return render(request, 'website/producto/index.html', {
+        'product': product
+    })
+
+
+def helloworld(request):
+    products = Product.objects.all()
+    return render(
+        request,
+        'website/helloworld.html',
+        {
+            'products': products
+        }
+    )
 
 # Workarea views here.
 # def workarea(request):

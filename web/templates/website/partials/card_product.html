@@ -1,0 +1,49 @@
+<div class="productsGrid">
+    <div class="products__items">
+        {% for product in products %}
+            <div class="products__item">
+                <div class="product__image mb-4">
+                    {% if user.is_authenticated %}
+                    <a href="product/{{ product.id }}">
+                        <img src="{{ product.picture }}" alt="{{ product.name }}"></a>
+                    {% else %}
+                    <img src="{{ product.picture }}" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+                <div class="product__brand font-bold uppercase">
+                    {% if user.is_authenticated %}
+                    <a href="product/{{ product.id }}">
+                        {{ product.brand }}</a>
+                    {% else %}
+                    {{ product.brand }}
+                    {% endif %}
+                </div>
+                <div class="product__title font-bold mb-2">
+                    {% if user.is_authenticated %}
+                    <a href="product/{{ product.id }}">
+                        {{ product.name|title }}</a>
+                    {% else %}
+                    {{ product.name|title }}
+                    {% endif %}
+                </div>
+                <div class="product__code mb-4">
+                    Código: {{ product.code }}
+                </div>
+                <div class="product__prices mb-4">
+                    <p><span>USD</span> {{ product.price }}</p>
+                    <p><span>USD</span> {{ product.price_no_offer }}</p>
+                </div>
+                <div class="product__toCompare">
+                    <label for="comparar">
+                        <input type="checkbox" name="comparar" id="comparar"> Comparar
+                    </label>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="product__toBuy">
+                    <button>Añadir al carrito</button>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

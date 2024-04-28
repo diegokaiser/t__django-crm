@@ -1,0 +1,17 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="test">
+    <div class="testing container my-0 mx-auto">
+        <div class="testing__content  pt-48 pb-16">
+            <h2 class="font-bold mb-6 text-center text-xl">Productos</h2>
+            <div class="testing__items">
+                {% if products %}
+                    {% include 'website/partials/card_product.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

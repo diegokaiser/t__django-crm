@@ -3,265 +3,199 @@
 
 {% block content %}
 <div class="home">
-    <div class="home__banner container flex flex-col items-center justify-center my-0 mx-auto">
-        <div class="banner__statement mb-10 mt-16">
-            <h1 class="font-bold text-4xl text-white text-center">Selecciona entre</h1>
-            <h2 class="font-bold text-xl text-white text-center">Más de 300.000 autopartes y accesorios</h2>
-        </div>
-        <div class="banner__search mb-10">
-            <div class="search__switcher">
-                <button class="js-searchByProduct active">Buscar por producto</button>
-                <button class="js-searchByKeyword">Buscar por palabra clave</button>
+    <div class="home__banner flex items-center justify-center">
+        <div class="container my-0 mx-auto flex flex-col items-center justify-center">
+            <div class="banner__statement mb-10 mt-16">
+                <h1 class="font-bold text-4xl text-white text-center">Selecciona entre</h1>
+                <h2 class="font-bold text-xl text-white text-center">Más de 300.000 autopartes y accesorios</h2>
             </div>
-            <div class="search__content">
-                <div class="search__byProduct active">
-                    <form action="">
-                        <div class="select__group flex">
-                            <div class="select__field bg-white border-2 rounded" style="border-color: #E0E0E0">
-                                <select name="brands" id="brands">
-                                    <option value="0">Marca</option>
-                                    {% if brands %}
-                                        {% for brand in brands %}
-                                            <option value="brand-{{ forloop.counter }}">{{ brand.name }}</option>
-                                        {% endfor %}
-                                    {% endif %}
-                                </select>
-                            </div>
-                            <div class="select__field bg-white border-2 rounded ml-2" style="border-color: #E0E0E0">
-                                <select
-                                    name="systems"
-                                    id="systems"
-                                    hx-get="{% url 'subsystems' %}"
-                                    hx-trigger="change"
-                                    hx-target="#subsystemsSelect"
-                                >
-                                    <option value="0">Sistema</option>
-                                    {% if systems %}
-                                        {% for system in systems %}
-                                            <option value="{{ system.pk }}">{{ system.name }}</option>
-                                        {% endfor  %}
-                                    {% endif  %}
-                                </select>
-                            </div>
-                            <div class="select__field bg-white border-2 rounded ml-2" id="subsystemsSelect" style="border-color: #E0E0E0">
-                                {% include 'website/partials/select_subsystems.html' %}
-                            </div>
-                        </div>
-                        <div class="flex items-center ml-4 mr-4">
-                            o
-                        </div>
-                        <div class="input__field bg-white border-2 rounded" style="border-color: #E0E0E0">
-                            <input type="text" name="" id="" placeholder="Buscar por VIN">
-                        </div>
-                        <div class="input__field ml-2">
-                            <button type="submit">Buscar</button>
-                        </div>
-                    </form>
+            <div class="banner__search mb-10">
+                <div class="search__switcher">
+                    <button class="js-searchByProduct active">Buscar por producto</button>
+                    <button class="js-searchByKeyword">Buscar por palabra clave</button>
                 </div>
-                <div class="search__byKeyword">
-                    <form action="" class="flex justify-between">
-                        <div class="input__field bg-white border-2 rounded" style="border-color: #E0E0E0;">
-                            <img src="{% static 'src/images/icons/input_search.svg' %}" alt="">
-                            <input type="text" name="" id="" placeholder="Ingresa palabra clave o código de producto">
-                        </div>
-                        <div class="input__field ml-2">
-                            <button type="submit">Buscar</button>
-                        </div>
-                    </form>
+                <div class="search__content">
+                    <div class="search__byProduct active">
+                        <form action="">
+                            <div class="select__group flex">
+                                <div class="select__field bg-white border-2 rounded" style="border-color: #E0E0E0">
+                                    <select name="brands" id="brands">
+                                        <option value="0">Marca</option>
+                                        {% if brands %}
+                                            {% for brand in brands %}
+                                                <option value="brand-{{ forloop.counter }}">{{ brand.name }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                                <div class="select__field bg-white border-2 rounded ml-2" style="border-color: #E0E0E0">
+                                    <select
+                                        name="systems"
+                                        id="systems"
+                                        hx-get="{% url 'subsystems' %}"
+                                        hx-trigger="change"
+                                        hx-target="#subsystemsSelect"
+                                    >
+                                        <option value="0">Sistema</option>
+                                        {% if systems %}
+                                            {% for system in systems %}
+                                                <option value="{{ system.pk }}">{{ system.name }}</option>
+                                            {% endfor  %}
+                                        {% endif  %}
+                                    </select>
+                                </div>
+                                <div class="select__field bg-white border-2 rounded ml-2" id="subsystemsSelect" style="border-color: #E0E0E0">
+                                    {% include 'website/partials/select_subsystems.html' %}
+                                </div>
+                            </div>
+                            <div class="flex items-center ml-4 mr-4">
+                                o
+                            </div>
+                            <div class="input__field bg-white border-2 rounded" style="border-color: #E0E0E0">
+                                <input type="text" name="" id="" placeholder="Buscar por VIN">
+                            </div>
+                            <div class="input__field ml-2">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="search__byKeyword">
+                        <form action="" class="flex justify-between">
+                            <div class="input__field bg-white border-2 rounded" style="border-color: #E0E0E0;">
+                                <img src="{% static 'src/images/icons/input_search.svg' %}" alt="">
+                                <input type="text" name="" id="" placeholder="Ingresa palabra clave o código de producto">
+                            </div>
+                            <div class="input__field ml-2">
+                                <button type="submit">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="banner__topProducts flex items-start justify-center gap-x-6">
-            <div class="topProducts__item w-32">
-                <a href="" class="font-bold leading-4 text-sm text-white">
-                    <div class="image h-32 mb-4 w-32 rounded-full">
-                        <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
-                    </div>
-                    <strong class="block text-center">Aros & neumáticos</strong>
-                </a>
-            </div>
-            <div class="topProducts__item w-32">
-                <a href="" class="font-bold leading-4 text-sm text-white">
-                    <div class="image h-32 mb-4 w-32 rounded-full">
-                        <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
-                    </div>
-                    <strong class="block text-center">Batería</strong>
-                </a>
-            </div>
-            <div class="topProducts__item w-32">
-                <a href="" class="font-bold leading-4 text-sm text-white">
-                    <div class="image h-32 mb-4 w-32 rounded-full">
-                        <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
-                    </div>
-                    <strong class="block text-center">Filtros</strong>
-                </a>
-            </div>
-            <div class="topProducts__item w-32">
-                <a href="" class="font-bold leading-4 text-sm text-white">
-                    <div class="image h-32 mb-4 w-32 rounded-full">
-                        <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
-                    </div>
-                    <strong class="block text-center">Lubricante</strong>
-                </a>
+            <div class="banner__topProducts flex items-start justify-center gap-x-6">
+                <div class="topProducts__item w-32">
+                    <a href="" class="font-bold leading-4 text-sm text-white">
+                        <div class="image h-32 mb-4 w-32 rounded-full">
+                            <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
+                        </div>
+                        <strong class="block text-center">Aros & neumáticos</strong>
+                    </a>
+                </div>
+                <div class="topProducts__item w-32">
+                    <a href="" class="font-bold leading-4 text-sm text-white">
+                        <div class="image h-32 mb-4 w-32 rounded-full">
+                            <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
+                        </div>
+                        <strong class="block text-center">Batería</strong>
+                    </a>
+                </div>
+                <div class="topProducts__item w-32">
+                    <a href="" class="font-bold leading-4 text-sm text-white">
+                        <div class="image h-32 mb-4 w-32 rounded-full">
+                            <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
+                        </div>
+                        <strong class="block text-center">Filtros</strong>
+                    </a>
+                </div>
+                <div class="topProducts__item w-32">
+                    <a href="" class="font-bold leading-4 text-sm text-white">
+                        <div class="image h-32 mb-4 w-32 rounded-full">
+                            <img src="{% static 'src/images/topProduct_a.png' %}" alt="">
+                        </div>
+                        <strong class="block text-center">Lubricante</strong>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="brands">
-    <div class="brands__content container my-0 mx-auto py-12">
-        <div class="brands__banners grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-6 mb-14">
-            <div class="brands__banner-destacado bg-green-500 rounded" style="grid-area: 1 / 1 / 3 / 3; height: 532px"></div>
-            <div class="banner__a bg-yellow-300 rounded" style="grid-area: 1 / 3 / 2 / 4; height: 254px"></div>
-            <div class="banner__a bg-blue-200 rounded" style="grid-area: 2 / 3 / 3 / 4; height: 254px"></div>
-        </div>
-        <h3 class="font-bold mb-6 text-xl">Fabricantes con los que trabajamos</h3>
-        <div class="brands__items grid grid-cols-12 grid-rows-2 gap-x-1 gap-y-2">
+    <div class="brands">
+        <div class="brands__content container my-0 mx-auto py-12">
+            <div class="brands__banners grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-6 mb-14">
+                {% if banners_d %}
+                    {% include 'website/partials/banners/destacado.html' %}
+                {% endif %}
+                {% if banners_a %}
+                    {% include 'website/partials/banners/a.html' %}
+                {% endif %}
+            </div>
             {% if brands %}
-                {%  for brand in brands %}
-                    <div class="brand__item flex items-center justify-center">
-                        <img src="{{ brand.logo }}" alt="{{ brand.name }}">
-                    </div>
-                {% endfor %}
+            <h3 class="font-bold mb-6 text-xl">Fabricantes con los que trabajamos</h3>
+            <div class="brands__items grid grid-cols-12 grid-rows-2 gap-x-1 gap-y-2">
+                    {%  for brand in brands %}
+                        <div class="brand__item flex items-center justify-center">
+                            <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                        </div>
+                    {% endfor %}
+            </div>
             {% endif %}
         </div>
     </div>
-</div>
-<div class="products">
-    <div class="products__content container my-0 mx-auto pt-12 pb-14">
-        <h2 class="font-bold mb-6 text-center text-xl">Nuestros productos</h2>
-        <div class="products__items grid grid-cols-6 grid-rows-1 gap-x-3 pb-16">
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-                <div class="product__toCompare">
-                    <label for="comparar">
-                        <input type="checkbox" name="comparar" id="comparar"> Comparar
-                    </label>
-                </div>
-            </div>
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-            </div>
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-            </div>
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-            </div>
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-            </div>
-            <div class="products__item">
-                <div class="product__image mb-4">
-                    <img src="{% static 'src/images/no-image.svg' %}" alt="">
-                </div>
-                <div class="product__brand font-bold uppercase">
-                    Sampa
-                </div>
-                <div class="product__title font-bold mb-2">
-                    Protector tuerca R/Poster Largo FH/FM
-                </div>
-                <div class="product__code mb-4">
-                    Código: 3094778
-                </div>
-                <div class="product__prices mb-4">
-                    <p><span>USD</span> 46.20</p>
-                    <p><span>USD</span> 40.20</p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center">
-            <a class="likeButton" href="">Ver más</a>
-        </div>
-    </div>
-</div>
-<div class="reasons">
-    <div class="reasons__content container my-0 mx-auto pt-12 pb-16">
-        <h2 class="font-bold mb-6 text-center text-xl">6 razones para elegirnos</h2>
-        <div class="reasons__items grid grid-cols-3 grid-rows-2 gap-6">
-            {% if reasons %}
-                {% for reason in reasons %}
-                    <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
-                        <img src="{{ reason.icon }}" alt="{{ reason.text }}">
-                        <div class="item__reason">{{ reason.text }}</div>
+    {% if products  %}
+    <div class="products">
+        <div class="products__content container my-0 mx-auto pt-12 pb-14">
+            <h2 class="font-bold mb-6 text-center text-xl">Nuestros productos</h2>
+            <div class="products__items grid grid-cols-6 grid-rows-1 gap-x-3 pb-16">
+                {% for product in products %}
+                <div class="products__item">
+                    <div class="product__image mb-4">
+                        {% if user.is_authenticated %}
+                        <a href="product/{{ product.id }}">
+                            <img src="{{ product.picture }}" alt="{{ product.name }}"></a>
+                        {% else %}
+                        <img src="{{ product.picture }}" alt="{{ product.name }}">
+                        {% endif %}
                     </div>
-                {% endfor  %}
-            {% endif  %}
+                    <div class="product__brand font-bold uppercase">
+                        {% if user.is_authenticated %}
+                        <a href="product/{{ product.id }}">
+                            {{ product.brand }}</a>
+                        {% else %}
+                        {{ product.brand }}
+                        {% endif %}
+                    </div>
+                    <div class="product__title font-bold mb-2">
+                        {% if user.is_authenticated %}
+                        <a href="product/{{ product.id }}">
+                            {{ product.name|title }}</a>
+                        {% else %}
+                        {{ product.name|title }}
+                        {% endif %}
+                    </div>
+                    <div class="product__code mb-4">
+                        Código: {{ product.code }}
+                    </div>
+                    <div class="product__prices mb-4">
+                        <p><span>USD</span> {{ product.price }}</p>
+                        <p><span>USD</span> {{ product.price_no_offer }}</p>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="product__toBuy">
+                        <button>Añadir al carrito</button>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center">
+                <a class="likeButton" href="">Ver más</a>
+            </div>
         </div>
     </div>
+    {% endif %}
+    {% if reasons %}
+    <div class="reasons">
+        <div class="reasons__content container my-0 mx-auto pt-12 pb-16">
+            <h2 class="font-bold mb-6 text-center text-xl">6 razones para elegirnos</h2>
+            <div class="reasons__items grid grid-cols-3 grid-rows-2 gap-6">
+                    {% for reason in reasons %}
+                        <div class="reasons__item flex items-center justify-start gap-x-9 px-7">
+                            <img src="{{ reason.icon }}" alt="{{ reason.text }}">
+                            <div class="item__reason">{{ reason.text }}</div>
+                        </div>
+                    {% endfor  %}
+            </div>
+        </div>
+    </div>
+    {% endif  %}
 </div>
 {% endblock %}
