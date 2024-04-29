@@ -1,5 +1,58 @@
 {% extends 'website/base.html' %}
 
 {% block content %}
-<h1>Contáctanos</h1>
+    <div class="contact">
+        <div class="container my-0 mx-auto">
+            <div class="contact__content mx-auto w-9/12 pt-48 pb-16">
+                <h1 class="font-bold text-4xl text-left">Estamos para ayudarte</h1>
+                <div class="grid grid-cols-3 gap-x-10 mt-7 mb-14">
+                    <div class="contact__form" style="grid-area: 1 / 1 / 3 / 3">
+                        <form action="">
+                            {% csrf_token %}
+                            <div class="input__field bg-white border-2 flex items-center justify-center mb-6 rounded px-6"
+                                 style="border-color: #E0E0E0">
+                                <input type="text" placeholder="Nombre">
+                            </div>
+                            <div class="input__field bg-white border-2 flex items-center justify-center mb-6 rounded px-6"
+                                 style="border-color: #E0E0E0">
+                                <input type="text" placeholder="Email">
+                            </div>
+                            <div class="input__field bg-white border-2 flex items-center justify-center mb-6 rounded px-6"
+                                 style="border-color: #E0E0E0">
+                                <input type="text" placeholder="Celular">
+                            </div>
+                            <div class="input__field bg-white border-2 flex items-center justify-center mb-6 rounded px-6"
+                                 style="border-color: #E0E0E0">
+                                <textarea name="" id="" placeholder="Consulta"></textarea>
+                            </div>
+                            <div class="input__field mt-2">
+                                <button class="likeButton" type="submit">Enviar</button>
+                            </div>
+                        </form>
+                        <h3 class="font-bold text-2xl text-left mt-10">También puedes comunicarte con nosotros a:</h3>
+                        <div class="grid grid-cols-2 gap-x-10 mt-4">
+                            <div class="likeButton cursor-pointer">
+                                +99 987 654 321
+                            </div>
+                            <div class="likeButton-negative cursor-pointer">
+                                sales@trascendiendo.digital
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-2xl text-left mt-10">Nuestras tiendas:</h3>
+                        <ul class="mt-4">
+                            <li>Donec a ipsum interdum, lobortis arcu sit amet, fringilla velit.</li>
+                            <li>Curabitur mollis elit eu nunc lacinia scelerisque.</li>
+                            <li>Etiam vel erat quis metus interdum imperdiet.</li>
+                            <li>Pellentesque eleifend risus ac accumsan bibendum.</li>
+                            <li>Nam eu ante nec ipsum euismod accumsan.</li>
+                            <li>Mauris non est a dui congue hendrerit in vitae odio.</li>
+                        </ul>
+                    </div>
+                    <div class="contact__banner" style="grid-area: 1 / 3 / 3 / 4">
+                        <div class="banner bg-blue-400 rounded" style="height: 700px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

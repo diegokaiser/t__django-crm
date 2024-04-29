@@ -1,0 +1,90 @@
+brand_id:  Caja de cambios
+subsystems :  ['Accesorios y componentes', 'Empaquetaduras, retes y orings', 'Ishift', 'Lubiración', 'Palanca y cables', 'Piñones y ejes', 'Retardador', 'Rodajes', 'Selector', 'Selector super marcha', 'Sensores, módulos y actuadores', 'Sincronizadores', 'Toma fuerza', 'Válculas']
+
+brand_id:  Cardan
+subsystems :  ['Accesorios y componentes', 'Crucetas', 'Eje completo y/o parcial', 'Soportes', 'Yugos y bridas']
+
+brand_id:  Carreta
+subsystems :  ['Accesorios y componentes', 'Bocamaza', 'Eje americano', 'Eje europeo', 'Paquete muelle', 'Suspensión mecánica', 'Suspensión neumática']
+
+brand_id:  Carrocería
+subsystems :  ['Accesorios y componentes', 'Admisión y escape', 'Aire acondicionado', 'Cabina', 'Depósitos y tapas', 'Emblemas', 'Espejos y soportes', 'Limpiaparabrisas', 'Parachoque y guardabarro', 'Puertas y levalunas', 'Refrigeración']
+
+brand_id:  Complementos
+subsystems :  ['Accesorios', 'Elementos de desgaste y gets', 'Equipos y máquinas', 'Herramientas']
+
+brand_id:  Corona
+subsystems :  ['Accesorios y componentes', 'Diferencial', 'Ejes y semiejes', 'Empaquetaduras, retenes y orings', 'Piñón y corona', 'Reenvío', 'Rodajes', 'Sensores, módulos y actuadores', 'Válvulas']
+
+brand_id:  Cubos y ruedas
+subsystems :  ['Accesorios y componentes', 'Aros', 'Cubos', 'Empaquetaduras, retenes y orings', 'Pernos y tuercas', 'Rodajes']
+
+brand_id:  Dirección
+subsystems :  ['Accesorios y componentes', 'Barras y terminales', 'Cajas dirección', 'Servo dirección']
+
+brand_id:  Eje delantero
+subsystems :  ['Accesorios y componentes', 'Barras y soportes', 'Muñón', 'Pines y bocinas']
+
+brand_id:  Eje posterior
+subsystems :  ['Accesorios y componentes', 'Bujes y bocinas', 'Funda', 'Puente', 'Soportes']
+
+brand_id:  Embrague
+subsystems :  ['Accesorios y componentes', 'Collarín', 'Disco', 'Kit de embrague', 'Plato de embrague', 'Servos y bombín']
+
+brand_id:  Filtración
+subsystems :  ['Admisión aire', 'Aire acondicionado', 'Cumbustible', 'Escape, úrea aut.', 'Lubriración caja cambios', 'Lubriración motor', 'Refrigeración motor', 'Secador de aire', 'Servo de dirección', 'Transmisión, hidraúlico']
+
+brand_id:  Frenos
+subsystems :  ['Accesorios y componentes', 'Cilindro accionamiento', 'Compresor de aire', 'Discos y tambores', 'Mecanismo frenado', 'Pastillas y zapatas', 'Secador de aire', 'Sensores, módulos y actuadores', 'Válculas freno']
+
+brand_id:  Hidraúlico
+subsystems :  ['Cilindros', 'Empaquetaduras, retenes y orings', 'Mangueras', 'Mecanismo de levante', 'Misceláneos']
+
+brand_id:  Iluminación
+subsystems :  ['Conectores y soquetes', 'Faros', 'Focos']
+
+brand_id:  Instrumentación y eléctrico
+subsystems :  ['Accesorios y componentes', 'Alternador', 'Arranque', 'Batería', 'Equipamientos', 'Relés y Fusibles', 'Sensores, módulos y switchs', 'Tableros e instrumentos']
+
+brand_id:  Lubricante
+subsystems :  ['Aceite caja', 'Aceite corona', 'Aceite motor', 'Aceite transmisión', 'Aceites y quimicos especiales', 'Grasa de rodaje y chasis', 'Líquido de frenos', 'Refrigerantes']
+
+brand_id:  Misceláneos
+subsystems :  ['Abrazadoeras', 'Limpiadores', 'Múltiples', 'Pernos y tuercas', 'Rodajes y retenes']
+
+brand_id:  Motor
+subsystems :  ['Accesorios y componentes', 'Admisión y escape', 'Combustuble e inyección', 'Culata', 'Eléctrico, encendido motor', 'Empaquetaduras, retenes y orings', 'Fajas y templadores', 'Lubricación', 'Monoblock', 'Refrigeración', 'Sensores, módulos y actuadores', 'Soportes']
+
+brand_id:  Quinta rueta
+subsystems :  ['Accesorios y componentes', 'King ping', 'Quinta rueda', 'Tornamesa']
+
+brand_id:  Suspensión
+subsystems :  ['Accesorios y componentes', 'Amortiguadores', 'Barras y bujes', 'Bogie', 'Bolsas', 'Cabina', 'Muelles', 'Sensores, módulos y actuadores', 'Válvulas']
+
+brand_id:  Transmisión
+subsystems :  ['Accesorios y componentes', 'Discos', 'Empaquetaduras, retenes y orings', 'Lubricación', 'Piñones y ejes', 'Rodajes', 'Selectores', 'Sensores, módulos y actuadores']
+
+brand_id:  Tren de rodamiento
+subsystems :  ['Cademas', 'Misceláneos', 'Rodillos', 'Rueda guía', 'Segmentos y ,sprocketZapatas']
+
+
+
+brand_id:  Transmisión
+subsystem:  Accesorios y componentes
+subsystem:  Discos
+subsystem:  Empaquetaduras, retenes y orings
+subsystem:  Lubricación
+subsystem:  Piñones y ejes
+subsystem:  Rodajes
+subsystem:  Selectores
+subsystem:  Sensores, módulos y actuadores
+
+
+
+Phasellus volutpat lectus eget erat hendrerit eleifend.
+Sed placerat nibh id quam tempor, in interdum ligula convallis.
+Donec id sem vel turpis ultricies ullamcorper eget a sem.
+Pellentesque tincidunt metus aliquam eros lacinia, ut fermentum velit molestie.
+Morbi vestibulum erat at viverra consequat.
+Morbi sed dui consequat, congue felis ac, porta massa.
+Quisque a est eu leo finibus bibendum.

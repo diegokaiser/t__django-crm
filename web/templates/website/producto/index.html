@@ -1,5 +1,47 @@
 {% extends 'website/base.html' %}
 
 {% block content %}
-<h1>Producto</h1>
+<div class="pdp">
+    <div class="container my-0 mx-auto">
+        <div class="pdp__content pt-48 pb-16">
+        {% if product %}
+            <div class="product grid grid-cols-2 grid-rows-1 gap-x-6">
+                <div class="product__gallery">
+                    <img src="{{ product.picture }}" alt="{{ product.name }}"></a>
+                </div>
+                <div class="product__details">
+                    <div class="product__title mb-4">
+                        <h1 class="font-bold text-4xl text-left">
+                            {{ product.name|title }}
+                        </h1>
+                    </div>
+                    <div class="product__brand">
+                        {{ product.brand }}
+                    </div>
+                    <div class="product__code mb-4">
+                        {{ product.code }}
+                    </div>
+                    <div class="product__description mb-4">
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <div class="product__prices">
+                        <p><span>USD</span> {{ product.price }}</p>
+                        <p><span>USD</span> {{ product.price_no_offer }}</p>
+                    </div>
+                    <div class="product__actions">
+                        <div class="qty">
+                            <button class="btnQty">-</button>
+                            <input type="number">
+                            <button class="btnQty">+</button>
+                        </div>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            No hay producto pe :(
+        {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

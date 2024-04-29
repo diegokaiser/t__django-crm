@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#__4nv7us*(u&m#z1$@f^@ndt4q-1)$l$(!%nd&h1-6&-j9tth
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -56,7 +56,8 @@ ROOT_URLCONF = 'mym.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'templates'],
+        # 'DIRS': [ BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,12 +78,12 @@ WSGI_APPLICATION = 'mym.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 't__mymproject',
-        #'USER': 'root',
-        #'PASSWORD': 'toor',
-        #'HOST': '127.0.0.1',
-        #'PORT': '3306',
+        'USER': 'lobogris',
+        'PASSWORD': '$(pB5c&57596-6T',
+        'HOST': 'django-database.cviii0eoo6dy.eu-north-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
@@ -121,6 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 
 # Default primary key field type
